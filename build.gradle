@@ -1,79 +1,22 @@
 buildscript {
     repositories {
-        mavenCentral()
-        mavenLocal()
+        // Repositories in common.gradle are already available here
     }
     dependencies {
-        classpath("com.lmco.crt:crt-classpath-dependencies:0.4.0")
+        classpath(springBootGradlePlugin)
     }
 }
 
 plugins {
     id 'java'
-    id 'java-library'
+}
+
+apply plugin: "org.springframework.boot"
+//apply from: "${rootDir}/common.gradle"
+
+tasks.register('buildscriptDependencies', DependencyReportTask) {
+    configurations = [buildscript.configurations.classpath] as Set
 }
 
 group = 'com.lmco.crt'
 version = '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-    maven {
-        url = file("C:\\Users\\mattw\\.m2\\repository")
-    }
-}
-
-apply from: "dependencies.gradle"
-
-configurations.maybeCreate('autogen')
-
-configurations {
-    //compileClasspath.extendsFrom(runtimeClasspath)
-    compileClasspath {
-        extendsFrom(runtimeClasspath)
-    }
-//    autogen {
-//        extendsFrom implementation
-//        extendsFrom testImplementation
-//    }
-//    compileClasspath {
-//        extendsFrom runtimeClasspath
-//    }
-}
-
-//dependencies {
-//    testImplementation platform('org.junit:junit-bom:5.9.1')
-//    testImplementation 'org.junit.jupiter:junit-jupiter'
-//}
-
-//test {
-//    useJUnitPlatform()
-//}
-
-//jar {
-//    manifest {
-//        attributes 'Main-Class': 'com.lmco.crt.Main'
-//    }
-//}
-
-test {
-    useJUnit()
-}
-
-// Define a task to assemble a fat JAR
-task fatJar(type: Jar) {
-    manifest {
-        attributes 'Main-Class': 'com.lmco.crt.Main'
-    }
-    archiveBaseName.set("${project.name}-all")
-    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-    // Handle duplicate entries
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    exclude("META-INF/*.RSA", "META-INF/*.DSA", "META-INF/*.SF")
-}
-
-// Make the fat JAR the default artifact
-artifacts {
-    archives fatJar
-}

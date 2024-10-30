@@ -1,0 +1,20 @@
+//println "Property value from settings: ${mavenUser}"
+
+//mavenUser = "${mavenUser}"
+//println(mavenUser)
+//
+//repositories {
+//    mavenLocal()
+//    maven {
+//        url = file("C:\\Users\\mattw\\.m2\\spring-boot-gradle-plugin")
+//    }
+//    maven {
+//        url = file("C:\\Users\\mattw\\.m2\\swagger-codegen-maven-plugin")
+//    }
+//    maven {
+//        url = file("C:\\Users\\mattw\\.m2\\dependency-management-plugin")
+//    }
+//    maven {
+//        url = file("C:\\Users\\mattw\\.m2\\cyclonedx-gradle-plugin")
+//    }
+//}

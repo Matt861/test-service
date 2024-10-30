@@ -1,0 +1,131 @@
+//buildscript {
+//    apply from: "${rootDir}/modules.gradle"
+//    repositories {
+//
+//        //mavenLocal()
+//        mavenCentral()
+//        maven {
+//            url = file("C:\\Users\\mattw\\Documents\\pom_files\\crt-0.4.0\\without_exclusions\\repository2")
+//        }
+//        //url uri('C:\\Users\\mattw\\Documents\\pom_files\\crt-0.4.0\\with_exclusions\\repository')
+//    }
+//    dependencies {
+//        //classpath(dependencyManagementPlugin)
+//        classpath(classpathDependencies)
+//    }
+//}
+
+plugins {
+    id 'java'
+    id 'java-library'
+    //id 'maven'
+    //id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+apply plugin: 'maven-publish'
+//apply plugin: 'maven'
+//apply plugin: "io.spring.dependency-management" version "1.0.11.RELEASE"
+
+group = 'com.lmco.crt'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = file("C:\\Users\\mattw\\Documents\\pom_files\\crt-0.4.0\\without_exclusions\\repository2")
+    }
+}
+
+apply from: "dependencies.gradle"
+
+configurations.maybeCreate('autogen')
+
+configurations {
+    //compileClasspath.extendsFrom(runtimeClasspath)
+    compileClasspath {
+        extendsFrom(runtimeClasspath)
+    }
+//    autogen {
+//        extendsFrom implementation
+//        extendsFrom testImplementation
+//    }
+//    compileClasspath {
+//        extendsFrom runtimeClasspath
+//    }
+}
+
+tasks.register('buildscriptDependencyTree', DependencyReportTask) {
+    configurations = [buildscript.configurations.classpath]
+}
+
+//tasks.register('buildscriptDependencies') {
+//    doLast {
+//        configurations.buildscript.each { println it }
+//    }
+//}
+
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            from components.java
+//        }
+//    }
+//    repositories {
+//        mavenLocal()
+//    }
+//}
+
+//dependencies {
+//    testImplementation platform('org.junit:junit-bom:5.9.1')
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+//}
+
+//test {
+//    useJUnitPlatform()
+//}
+
+//jar {
+//    manifest {
+//        attributes 'Main-Class': 'com.lmco.crt.Main'
+//    }
+//}
+
+test {
+    useJUnit()
+}
+
+//task printResolvedDependencies {
+//    doLast {
+//        configurations.testRuntimeClasspath.resolvedConfiguration.firstLevelModuleDependencies.each { dependency ->
+//            println "${dependency.moduleGroup}:${dependency.moduleName}:${dependency.moduleVersion}"
+//        }
+//    }
+//}
+
+//task printResolvedTestRuntimeDependencies {
+//    doLast {
+//        configurations.testRuntimeClasspath.resolvedConfiguration.firstLevelModuleDependencies.each { dependency ->
+//            dependency.allModuleArtifacts.each { artifact ->
+//                println "${artifact.moduleVersion.id.group}:${artifact.moduleVersion.id.name}:${artifact.moduleVersion.id.version}"
+//            }
+//        }
+//    }
+//}
+
+// Define a task to assemble a fat JAR
+//task fatJar(type: Jar) {
+//    manifest {
+//        attributes 'Main-Class': 'com.lmco.crt.Main'
+//    }
+//    archiveBaseName.set("${project.name}-all")
+//    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+//    with jar
+//    // Handle duplicate entries
+//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+//    exclude("META-INF/*.RSA", "META-INF/*.DSA", "META-INF/*.SF")
+//}
+
+// Make the fat JAR the default artifact
+//artifacts {
+//    archives fatJar
+//}

@@ -1,2 +1,30 @@
+//pluginManagement {
+//    repositories {
+//        mavenLocal()
+//    }
+//}
+
+//def propertiesFile = file('gradle.properties')
+//if (propertiesFile.exists()) {
+//    propertiesFile.withInputStream { stream ->
+//        def properties = new Properties()
+//        properties.load(stream)
+//        properties.each { key, value ->
+//            // Add each property to the settings scope using settings.ext
+//            settings.ext[key] = value
+//        }
+//    }
+//}
+//
+//allprojects {
+//    apply from: "repositories.gradle"
+//    apply from: "modules.gradle"
+//}
+
+//println(mavenPassword)
+
 rootProject.name = 'crt-service'
 
+gradle.beforeProject { project ->
+    project.apply from: new File(rootDir, 'common.gradle')
+}

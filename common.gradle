@@ -1,0 +1,32 @@
+ext {
+    testVariable = 'test_value_1'
+    crtDependenciesAll = 'com.lmco.crt:crt-dependencies-all:0.4.0'
+    //crtClasspathDependencies = 'com.lmco.crt:crt-classpath-dependencies:0.4.0'
+    springBootGradlePlugin = 'org.springframework.boot:spring-boot-gradle-plugin:2.2.7.RELEASE'
+    mavenUser = "${mavenUser}"
+    mavenPassword = "${mavenPassword}"
+}
+
+repositories {
+    println(mavenUser)
+    println(mavenPassword)
+    mavenLocal()
+    maven {
+        url = file("C:\\Users\\mattw\\.m2\\spring-boot-gradle-plugin")
+    }
+    maven {
+        url = file("C:\\Users\\mattw\\.m2\\swagger-codegen-maven-plugin")
+    }
+    maven {
+        url = file("C:\\Users\\mattw\\.m2\\dependency-management-plugin")
+    }
+    maven {
+        url = file("C:\\Users\\mattw\\.m2\\cyclonedx-gradle-plugin")
+    }
+}
+
+afterEvaluate {
+    dependencies {
+        implementation crtDependenciesAll
+    }
+}

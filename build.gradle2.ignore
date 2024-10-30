@@ -1,0 +1,28 @@
+buildscript {scriptHandler->
+    apply from: "${rootDir}/repositories.gradle", to: scriptHandler
+    apply from: "${rootDir}/modules.gradle"
+    //apply from: "${rootDir}/dependencies.gradle"
+    dependencies {
+        classpath(springBootGradlePlugin)
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: "org.springframework.boot"
+
+group = 'com.lmco.crt'
+version = '1.0-SNAPSHOT'
+
+allprojects {
+    apply from: "${rootDir}/repositories.gradle"
+    apply from: "${rootDir}/dependencies.gradle"
+}
+
+//tasks.register('buildscriptDependencies', DependencyReportTask) {
+//    configurations = [buildscript.configurations.classpath] as Set
+//}
+
+

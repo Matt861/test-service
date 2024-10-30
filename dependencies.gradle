@@ -1,3 +1,27 @@
+//apply from: "${rootDir}/common.gradle"
+
+//dependencies {
+//    implementation crtDependenciesAll
+//}
+
+//dependencyManagement {
+//    imports {
+//        mavenBom crtDependenciesParent
+//    }
+//}
+
+//dependencies {
+//    implementation crtDependenciesAll
+////    implementation crtDependencies
+////    testImplementation testDependencies
+////    implementation platform(crtDependenciesParent)
+////    implementation(enforcedPlatform(crtDependenciesParent))
+////    implementation platform(crtDependenciesParent)
+//}
+
+
+
+
 //configurations {
 //    metadataSources
 //}
@@ -30,27 +54,27 @@
 //    implementation 'com.lmco.crt:crt-test-framework:2.0-SNAPSHOT'
 //}
 
-dependencies {
-//    repositories {
-//        mavenLocal()
-//    }
-    //implementation 'org.apache.poi:poi:4.0.1'
-    //api 'com.lmco.crt:crt-framework:2.0-SNAPSHOT'
-
-    //compileOnly(platform('com.lmco.crt:crt-framework:2.0-SNAPSHOT'))
-    //compileClasspath('com.lmco.crt:crt-framework:2.0-SNAPSHOT')
-    implementation 'com.lmco.crt:crt-dependencies:0.4.0'
-    testImplementation 'com.lmco.crt:crt-test-dependencies:0.4.0'
-//    repositories {
-//        maven {
-//            url = file("C:\\Users\\mattw\\.m2\\repository")
-//            metadataSources {
-//                mavenPom()
-//            }
-//        }
-//    }
-    //implementation 'com.lmco.crt:crt-test-framework:2.0-SNAPSHOT'
-}
+//dependencies {
+//    implementation 'com.lmco.crt:crt-dependencies:0.4.0'
+//    testImplementation 'com.lmco.crt:crt-test-dependencies:0.4.0'
+////    repositories {
+////        mavenLocal()
+////    }
+//    //implementation 'org.apache.poi:poi:4.0.1'
+//    //api 'com.lmco.crt:crt-framework:2.0-SNAPSHOT'
+//
+//    //compileOnly(platform('com.lmco.crt:crt-framework:2.0-SNAPSHOT'))
+//    //compileClasspath('com.lmco.crt:crt-framework:2.0-SNAPSHOT')
+////    repositories {
+////        maven {
+////            url = file("C:\\Users\\mattw\\.m2\\repository")
+////            metadataSources {
+////                mavenPom()
+////            }
+////        }
+////    }
+//    //implementation 'com.lmco.crt:crt-test-framework:2.0-SNAPSHOT'
+//}
 
 //dependencies {
 //    repositories {

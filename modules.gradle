@@ -1,0 +1,14 @@
+//ext {
+//    crtDependencies = 'com.lmco.crt:crt-dependencies:0.4.0'
+//    testDependencies = 'com.lmco.crt:crt-test-dependencies:0.4.0'
+//    classpathDependencies = 'com.lmco.crt:crt-classpath-dependencies:0.4.0'
+//    crtDependenciesAll = 'com.lmco.crt:crt-dependencies-all:0.4.0'
+//    crtDependenciesParent = 'com.lmco.crt:crt-dependencies-parent:0.4.0'
+//    dependencyManagementPlugin = 'io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE'
+//    springBootGradlePlugin = 'org.springframework.boot:spring-boot-gradle-plugin:2.2.7.RELEASE'
+//    cycloneDxGradlePlugin = 'org.cyclonedx:cyclonedx-gradle-plugin:1.4.0'
+//    swaggerCodenMavenPlugin = 'io.swagger.codegen.v3:swagger-codegen-maven-plugin:3.0.20'
+//
+//    mavenUser = "${mavenUser}"
+//    mavenPassword = "${mavenPassword}"
+//}
